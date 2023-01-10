@@ -23,7 +23,7 @@
                             <tr>
                                 <th>Foto</th>
                                 <td>
-
+                                    <input type="file" class="form-control" name="foto">
                                 </td>
                             </tr>
                             <tr>

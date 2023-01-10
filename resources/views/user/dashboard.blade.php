@@ -52,31 +52,4 @@
             </div>
         </div>
     </div>
-    {{-- @include('user.components.sidebar')
-
-    @foreach ($pemberitahuan as $p)
-        <div class="alert alert-info">
-            {{ $p->isi }}
-        </div>
-    @endforeach
-
-    <div class="row">
-    
-        @foreach ($buku as $b)
-            <div class="col-3">
-                <div class="card">
-                    <div class="card-header">
-                        {{ $b->kategori->nama }}
-                </div>
-                <div class="card-body">
-                    {{ $b->judul }}
-                    {{ $b->pengarang }}
-                    {{ $b->penerbit->nama }}
-                </div>
-                <div class="card-footer">
-                    <a href="" class="btn btn-primary">Pinjem</a>
-                </div>
-            </div>
-        @endforeach
-    </div> --}}
 @endsection

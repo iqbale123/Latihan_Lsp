@@ -20,8 +20,8 @@
                         <select class="form-select" name="buku_id" id="">
                             <option value="" disabled selected>--PILIH OPSI--</option>
                             @foreach ($bukus as $b)
-                                <option value="{{ $b->id }}" {{ isset($buku_id) ? 
-                                $buku_id == $b->id ? "selected" : "" : "" }}>{{ 
+                                <option value="{{ $b->id }}" {{ isset($buku_id) ?
+                                $buku_id == $b->id ? "selected" : "" : "" }}>{{
                                 $b->judul }}</option>
                             @endforeach
                         </select>

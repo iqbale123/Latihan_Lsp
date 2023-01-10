@@ -62,7 +62,7 @@ Route::prefix('/admin')->group(function(){
 //     Route::get('/profile', function(){
 //         return view('admin.profile');
 //     })->name('admin.profile');
-    
+
 // });
 
 Route::prefix('user')->group(function(){
@@ -87,11 +87,23 @@ Route::prefix('user')->group(function(){
         $buku_id = $request->buku_id;
         $buku = Buku::all();
 
-        return view('user.form_peminjaman', compact("buku", "buku_id"));
+        return view('user.form_peminjaman', compact("bukus", "buku_id"));
     })->name('user.form_peminjaman_dashboard');
 
     Route::post('submit_peminjaman', function(Request $request){
-        $peminjaman = Peminjaman::create($request->all());
+        $tgl_peminjaman = $request->tgl_peminjaman;
+        $tggl_pengembalian = $request->tggl_pengembalian;
+        $buku_id = $request->buku_id;
+        $kondisi_buku_saat_dipinjam = $request->kondisi_buku_saat_dipinjam;
+
+        $peminjaman = Peminjaman::create([
+            "tgl_peminjaman" => $tgl_peminjaman,
+            "tggl_pengembalian" => $tggl_pengembalian,
+            "buku_id" => $buku_id,
+            "kondisi_buku_saat_dipinjam" => $kondisi_buku_saat_dipinjam,
+            "user_id" => Auth::user()->id
+        ]);
+
 
         if($peminjaman){
             return redirect()->route("user.peminjaman")
@@ -122,10 +134,10 @@ Route::prefix('user')->group(function(){
         ]);
 
         if($user && $user2) {
-            return redirect()->back()->with("status", "success")->with('message', 
+            return redirect()->back()->with("status", "success")->with('message',
             'Berhasil mengubah profile');
         }
             return redirect()->back()->with("status", "danger")->with('message', 'Gagal mengubah profile');
     })->name('user.profil.update');
-    
+
 });
