@@ -85,7 +85,7 @@ Route::prefix('user')->group(function(){
 
     Route::post('form_peminjaman', function(Request $request){
         $buku_id = $request->buku_id;
-        $buku = Buku::all();
+        $bukus = Buku::all();
 
         return view('user.form_peminjaman', compact("bukus", "buku_id"));
     })->name('user.form_peminjaman_dashboard');

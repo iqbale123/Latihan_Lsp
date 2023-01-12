@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -25,4 +26,6 @@ Route::get('penerbit', [App\Http\Controllers\API\PenerbitController::class, 'ind
 //Kategori
 Route::get('kategori', [App\Http\Controllers\API\KategoriController::class, 'index']);
 
+
+Route::post('user', [App\Http\Controllers\API\APIUserController::class, 'store']);
 
